@@ -12,7 +12,7 @@ class CartRepository: ICartRepository {
         database = DatabaseFactory.databaseShared
     )
 
-    private val cartCourseMembership: CartProductMembershipSchema = CartProductMembershipSchema(
+    private val cartProductMembership: CartProductMembershipSchema = CartProductMembershipSchema(
         database = DatabaseFactory.databaseShared
     )
 
@@ -22,7 +22,7 @@ class CartRepository: ICartRepository {
     }
 
     override suspend fun getProductListInCart(cartId: String): List<Product> {
-        return cartCourseMembership
+        return cartProductMembership
             .getProductListInCart(cartId)
             .map {
                 Product(
@@ -37,14 +37,14 @@ class CartRepository: ICartRepository {
     }
 
     override suspend fun addProductToCart(cartId: String, courseId: String) {
-        cartCourseMembership.addProductToCart(
+        cartProductMembership.addProductToCart(
             cartId = cartId,
             courseId = courseId,
         )
     }
 
     override suspend fun removeProductFromCart(cartId: String, courseId: String) {
-        cartCourseMembership.removeProductFromCart(
+        cartProductMembership.removeProductFromCart(
             cartId = cartId,
             courseId = courseId,
         )
