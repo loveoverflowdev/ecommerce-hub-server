@@ -1,6 +1,6 @@
-package com.asura.repositories.products.product
+package com.asura.repositories.product
 
-import models.products.product.Product
+import models.products.base.Product
 
 interface IProductRepository {
      suspend fun getAll(): List<Product>

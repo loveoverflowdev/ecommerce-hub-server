@@ -2,7 +2,7 @@ package models.products.base
 
 import models.base.Model
 
-abstract class Product(
+class Product(
     id: String,
     val title: String,
     val coverImage: String?,
